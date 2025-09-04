@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ExceptionExercise.Entities.Exceptions;
 
 namespace ExceptionExercise.Entities
 {
@@ -25,6 +21,23 @@ namespace ExceptionExercise.Entities
 		{
 			TimeSpan duration = CheckOut.Subtract(CheckIn);
 			return (int)duration.TotalDays;
+		}
+
+		public void UpdateDates(DateTime checkIn, DateTime checkOut)
+		{
+			DateTime now = DateTime.Now;
+
+			if (checkIn < now || checkOut < now)
+			{
+				throw new DomainException("Reservation dates for update must be future dates");
+			}
+			else if(checkOut <= checkIn)
+			{
+				throw new DomainException("Check-out date must be after check-in date");
+			}
+
+			CheckIn = checkIn;
+			CheckOut = checkOut;
 		}
 
 		public override string ToString()
