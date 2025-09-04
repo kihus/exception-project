@@ -1,18 +1,14 @@
-﻿try
-{
-	var num1 = int.Parse(Console.ReadLine());
-	var num2 = int.Parse(Console.ReadLine());
+﻿using ExceptionExercise.Entities;
 
-	var div = num1 / num2;
+Console.Write("Room number: ");
+var number = int.Parse(Console.ReadLine());
 
-	Console.WriteLine(div);
-}
-catch(DivideByZeroException)
-{
-	Console.WriteLine("Division by zero is not allowed");
-}
-catch(FormatException e)
-{
-	Console.WriteLine("Format error! " + e.Message);
-}
+Console.Write("Check-in date (dd/MM/yyyy): ");
+var checkIn = DateTime.Parse(Console.ReadLine());
+
+Console.Write("Check-out date (dd/MM/yyyy): ");
+var checkOut = DateTime.Parse(Console.ReadLine());
+
+var reservation = new Reservation(number, checkIn, checkOut);
+
 
