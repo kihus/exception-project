@@ -12,6 +12,10 @@ namespace ExceptionExercise.Entities
 
 		public Reservation(int roomNumber, DateTime checkIn, DateTime checkOut)
 		{
+			if (checkOut <= checkIn)
+			{
+				throw new DomainException("Check-out date must be after check-in date");
+			}
 			RoomNumber = roomNumber;
 			CheckIn = checkIn;
 			CheckOut = checkOut;
@@ -31,7 +35,7 @@ namespace ExceptionExercise.Entities
 			{
 				throw new DomainException("Reservation dates for update must be future dates");
 			}
-			else if(checkOut <= checkIn)
+			else if (checkOut <= checkIn)
 			{
 				throw new DomainException("Check-out date must be after check-in date");
 			}
