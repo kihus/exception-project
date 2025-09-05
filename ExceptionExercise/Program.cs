@@ -5,13 +5,13 @@ using System.Globalization;
 try
 {
 	Console.Write("Room number: ");
-	var number = int.Parse(Console.ReadLine());
+	var number = int.Parse(Console.ReadLine() ?? "0");
 
 	Console.Write("Check-in date (dd/MM/yyyy): ");
-	var checkIn = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+	var checkIn = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 	Console.Write("Check-out date (dd/MM/yyyy): ");
-	var checkOut = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+	var checkOut = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 	var reservation = new Reservation(number, checkIn, checkOut);
 	Console.WriteLine("Reservation: " + reservation);
@@ -19,9 +19,9 @@ try
 
 	Console.WriteLine("Enter data to update the reservation: ");
 	Console.Write("Check-on date (dd/MM/yyyy): ");
-	checkIn = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+	checkIn = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 	Console.Write("Check-out date (dd/MM/yyyy): ");
-	checkOut = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+	checkOut = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 	reservation.UpdateDates(checkIn, checkOut);
 
