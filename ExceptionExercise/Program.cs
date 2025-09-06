@@ -13,7 +13,7 @@ try
 	Console.Write("Check-out date (dd/MM/yyyy): ");
 	var checkOut = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
-	var reservation = new Reservation(number, checkIn, checkOut);
+	var reservation = new RegisterReserve(number, checkIn, checkOut);
 	Console.WriteLine("Reservation: " + reservation);
 	Console.WriteLine();
 
@@ -23,7 +23,7 @@ try
 	Console.Write("Check-out date (dd/MM/yyyy): ");
 	checkOut = DateTime.ParseExact(Console.ReadLine() ?? "0", "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
-	reservation.UpdateDates(checkIn, checkOut);
+	reservation.UpdateDate(checkIn, checkOut);
 
 	Console.WriteLine("Reservation: " + reservation);
 }
